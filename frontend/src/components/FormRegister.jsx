@@ -12,7 +12,7 @@ const FormRegister = () => {
       <div className="grid max-w-screen-2xl m-auto items-center">
         {/* column 1 */}
 
-        <div class="min-h-full w-screen flex items-center justify-center py-28 md:py-32 px-4 sm:px-6 lg:px-12">
+        <div class="h-auto w-screen flex items-center justify-center py-28 md:py-32 px-4 sm:px-6 lg:px-12">
           <div class="max-w-lg w-full space-y-6 border-2 border-indigo-600 rounded-md p-2 shadow-xl bg-indigo-200">
             {/* FORM HEADER */}
           
