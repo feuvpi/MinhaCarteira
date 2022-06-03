@@ -1,12 +1,29 @@
-import Login from './pages/Login.jsx';
+import React from 'react';
+import { Route, Routes } from "react-router-dom";
+// PAGES
+import Navbar from './components/Navbar.jsx'
+import FormAuth from './components/FormAuth'
+import Footer from './components/Footer'
 import Home from './pages/Home.jsx';
 import Register from './pages/Register.jsx';
+import FormRegister from './components/FormRegister.jsx';
+
 
 function App() {
   return (
+
     <>
-    <Home/>
+    <Navbar />
+    <Routes>
+      <Route path="/login" element={<FormAuth/>}/>
+      <Route path="/register" element={<FormRegister/>}/>
+      <Route path="/" element={<Home/>}/>
+    </Routes>
+    <Footer/>
+  
     </>
+    
+
   );
 }
 

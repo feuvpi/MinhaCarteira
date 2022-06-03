@@ -4,8 +4,8 @@ import { CheckIcon } from '@heroicons/react/solid'
 
 const Pricing = () => {
   return (
-    <div name="pricing" className="w-full text-white my-24">
-        <div className="w-full bg-slate-900 mix-blend-overlay">
+    <div name="pricing" className="w-full text-white bg-zinc-200">
+        <div className="w-full bg-slate-900 mix-blend-overlay py-24">
 
 
             <div className="max-w-[1240px] mx-auto py-12">
