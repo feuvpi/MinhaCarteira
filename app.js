@@ -30,6 +30,8 @@ app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
+require('./controllers/authController')(app)
+
 /*
 
 - Instalado a dependência bodyParser para ler dados em JSON passados pelo req.body
