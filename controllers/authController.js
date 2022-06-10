@@ -6,13 +6,14 @@ const authConfig = require('../config/auth.json')
 
 const router = express.Router();
 
-//função para gerar token de autenticação com jwt
+//função para gerar token de autenticação com jwt. params: passar 'id: user.id'
 function generateToken(params = {}) {
     return jwt.sign(params, authConfig.secret, {
         expiresIn: 86400,
     });
 }
 
+//rota para criação de usuário
 router.post('/register', async(req, res) => {
     const { email } = req.body;
     
@@ -35,22 +36,7 @@ router.post('/register', async(req, res) => {
     }
 })
 
-//registro de usuário
-exports.register = function(req, res) {
-    var newUser = new User(req.body);
-    newUser.hash_password = bcrypt.hashSync(req.body.password, 10);
-    newUser.save(function(err, user) {
-        if(err) {
-            return res.status(400).send({
-                message: err
-            });
-        } else {
-            user.hash_password = undefined;
-            return res.json(user);
-        }
-    } )
-};
-
+//rota para autenticação de usuário
 router.post('/authenticate', async (req, res) => {
     //pegando os dados inseridos pelo usúario no req.body
     const { email, password } = req.body;

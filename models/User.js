@@ -28,10 +28,10 @@ const UserSchema = new mongoose.Schema({
         select: false,
     },
 
-    hash_password: {
+    /*hash_password: {
         type: String,
 
-    },
+    },*/
 
     createdAt: {
         type: Date,

@@ -18,10 +18,6 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-//Setting up Routes
-app.use("/operations", operationsRoute);
-
-
 //Start listening to the server
 app.listen(3000);
 
@@ -32,6 +28,7 @@ app.get("/", (req, res) => {
 
 // -- /auth
 require('./controllers/authController')(app);
+require('./controllers/operationController')(app);
 
 /*
 
