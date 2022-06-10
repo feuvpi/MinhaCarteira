@@ -7,7 +7,7 @@ router.use(authMiddleWare);
 
 //get all operations
 router.get('/', (req, res) => {
-    res.send({ message: 'ok get it' });
+    res.send({ message: 'ok get it', user: req.userId });
 })
 
 module.exports = app => app.use('/operations', router);

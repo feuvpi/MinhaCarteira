@@ -24,10 +24,12 @@ module.exports = (req, res, next) => {
 
     //verificar se o token informado no req 
     jwt.verify(token, authConfig.secret, (err, decoded) => {
-        if(err) return res.status(err).send({ error: 'Token invalido.'})
+        if(err) return res.status(401).send({ error: 'Token invalido.'})
+
+        req.userId = decoded.id;
     });
 
-    req.userId = decoded.id;
+    
 
     return next();
 };
