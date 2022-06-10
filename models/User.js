@@ -1,8 +1,10 @@
-const mongoose = require('mongoose');
+//solicitando a database
+const mongoose = require('../database');
+//solicitando bcrypt 
 const bcrypt = require('bcrypt');
-Schema = mongoose.Schema;
 
-const UserSchema = mongoose.model('User', new mongoose.Schema({
+//criando a schema do User
+const UserSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -20,6 +22,12 @@ const UserSchema = mongoose.model('User', new mongoose.Schema({
         unique: true
     },
 
+    password: {
+        type: String,
+        required: true,
+        select: false,
+    },
+
     hash_password: {
         type: String,
 
@@ -29,14 +37,24 @@ const UserSchema = mongoose.model('User', new mongoose.Schema({
         type: Date,
         default: Date.now
     }
-}));
+});
 
+//função para encriptar a senha do usuario com bcrypt antes de salvar 
+UserSchema.pre('save', async function(next) {
+    const hash = await bcrypt.hash(this.password, 10);
+    this.password = hash.toString();
+    next();
+})
+
+//metodo para comparar password
 UserSchema.methods.comparePassword = function(password) {
     return bcrypt.compareSync(password, this.hash_password);
 }
 
+//criando um novo modelo User
 const User = mongoose.model('User', UserSchema);
 
+//exportando um modelo User
 module.exports = User;
 
 
