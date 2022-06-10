@@ -3,8 +3,13 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 require("dotenv/config");
 
+
 //Import ROUTES
 const operationsRoute = require("./routes/operations");
+
+//Initialize DB
+const db = require('./database/index');
+
 
 //Initialize express
 const app = express();
