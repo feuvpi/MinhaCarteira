@@ -14,7 +14,7 @@ router.post('/register', async(req, res) => {
 
         //pegando o req.body da solicitação POST em /register
         const result = await User.create(req.body);
-        const {password, ...user} = result.toObject(); //do not pass the password in the response, it`s already saved.
+        const {userPassword, ...user} = result.toObject(); //do not pass the password in the response, it`s already saved.
         return res.send({ user })
     } catch(err) {
         console.log(err);
@@ -23,21 +23,19 @@ router.post('/register', async(req, res) => {
 })
 
 router.post('/authenticate', async (req, res) => {
-    const { email, password } = req.body;
-    const user = await User.findOne({ email }).select('+password');
-
+    const { email, userPassword } = req.body;
+    const result = await User.findOne({ email }).select('+password');
+    const {password, ...user} = result.toObject();
     //verificando se existe um usuário com o email informado no banco de dados
     if(!user){
         return res.status(400).send({ error: 'Usuário não encontrado.'});
     }
 
     //comparando a senha informada com a senha registrada no banco de dados, utilizando bcrypt
-    if(!await bcrypt.compare(password, user.password))
+    if(!await bcrypt.compare(userPassword, password))
         return res.status(400).send({ error: 'Senha incorreta.'});
     
     res.send({ user })
-
-
 
 
 })
