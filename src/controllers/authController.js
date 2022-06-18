@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const authConfig = require('../config/auth.json');
 const crypto = require('crypto');
+const mailer = require('../modules/mailer');
 
 const router = express.Router();
 
@@ -68,14 +69,38 @@ router.post('/forgot_password', async (req, res) => {
     const { email } = req.body;
 
     try {
-        const user = await User.findOne({ email })
+        //buscando no banco de dados um usuário com o email informado
+
+        
+        const user = await User.findOne({ email });
+
+        
 
         if(!user) return res.status(400).send({ error: 'Usuário não encontrado'});
 
-        const token = crypto.randomBytes(20).toString('hex');
+        
 
-        const now = new Date();
-        now.setHours(now.getHours() + 1);
+        const token = crypto.randomBytes(20).toString('hex');
+        
+
+        const expires = new Date();
+        
+        expires.setHours(expires.getHours() + 1);
+
+        await User.findByIdAndUpdate(user.id, {
+            '$set': {
+                passwordResetToken: token,
+                passwordResetExpires: expires,
+            }
+        });
+
+        mailer.sendEmail({
+            to: email,
+            from: "frdvp1@gmail.com",
+            template: ''
+        })
+
+        console.log(token, expires);
 
     } catch (err) {
 

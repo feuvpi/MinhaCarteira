@@ -1,5 +1,7 @@
 //arquivo para envio automatico de e-mail para recuperação de senha utilizando a ferramenta de teste nodemailer
 
+const path = require('path');
+
 //importando o modulo nodemailer
 const nodemailer = require('nodemailer');
 
