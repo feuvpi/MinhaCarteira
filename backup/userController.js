@@ -49,6 +49,8 @@ exports.profile = function(req, res, next){
     }
 };
 
+module.exports = app => app.use('/operations', router);
+
 
 /**
  * 'use strict';

@@ -3,6 +3,8 @@
 //importando o modulo nodemailer
 const nodemailer = require('nodemailer');
 
+const hbs = require('nodemailer-express-handlebars');
+
 //utilizando desestruturação para importar informações de configuração do arquivo de configuração mail.json
 const { host, port, user, password } = require('../config/mail.json');
 
@@ -16,4 +18,12 @@ var transport = nodemailer.createTransport({
     }
   });
 
-  module.exports = transport;
+  
+transport.use('compile', hbs({
+    viewEngine: 'handlebars',
+    viewPath: path.resolve('/src/resources/mail'),
+    extName: '.html',
+}));
+
+//exportando 
+module.exports = transport;
