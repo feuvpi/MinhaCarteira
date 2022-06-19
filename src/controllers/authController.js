@@ -112,6 +112,38 @@ router.post('/forgot_password', async (req, res) => {
         res.status(400).send({ error: 'Ocorreu um problema, tente mais tarde.'});
 
     }
+});
+
+//rota para reset de senha 
+router.post('/reset_password', async (req, res) => {
+    const { email, token, password } = req.body;
+
+    try {
+        //buscar um usuário no banco de dados a partir do email do req.body
+        const user = await User.findOne({ email }).select('+passwordResetToken passwordResetExpires');
+
+        //verificar existe um usuários cadastrado com o email fornecido
+        if(!user) return res.status(400).send({ error: 'User not found' });
+        
+        //verificar se o token é valido
+        if(token !== user.passwordResetToken) return res.status(400).send({ error: 'Token invalido.' });
+
+        
+        const expires = new Date();
+
+        //verificar se o token expirou
+        if(expires > user.passwordResetExpires) return res.status(400).send({ error: 'Token expirado.' });
+
+        //realizar a alteração da senha do usuário com a nova senha fornecida
+        user.password = password;
+
+        await user.save();
+
+        res.send();
+
+    } catch (err) {
+        res.status(400).send({ error: 'Não foi possível recuperar a senha. Tente novamente mais tarde.' });
+    }
 })
 
 module.exports = app => app.use('/auth', router);
