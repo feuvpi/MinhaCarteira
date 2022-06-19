@@ -8,7 +8,7 @@ const nodemailer = require('nodemailer');
 const hbs = require('nodemailer-express-handlebars');
 
 //utilizando desestruturação para importar informações de configuração do arquivo de configuração mail.json
-const { host, port, user, password } = require('../config/mail.json');
+const { host, port, user, pass } = require('../config/mail.json');
 
 //integration
 var transport = nodemailer.createTransport({
@@ -16,14 +16,18 @@ var transport = nodemailer.createTransport({
     port,
     auth: {
       user,
-      password
-    }
+      pass
+    },
   });
 
+//console.log(path.resolve('../resources/mail'));
   
 transport.use('compile', hbs({
-    viewEngine: 'handlebars',
-    viewPath: path.resolve('/src/resources/mail'),
+    viewEngine: {
+      defaultLayout: undefined,
+      partialsDir: path.resolve('./src/resources/mail')
+    },
+    viewPath: path.resolve('./src/resources/mail'),
     extName: '.html',
 }));
 

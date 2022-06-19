@@ -33,6 +33,8 @@ app.get("/", (req, res) => {
 // -- /auth
 require('./controllers/index.js')(app);
 
+app.locals.layout = false;
+
 
 /*
 

@@ -94,11 +94,16 @@ router.post('/forgot_password', async (req, res) => {
             }
         });
 
-        mailer.sendEmail({
+        mailer.sendMail({
             to: email,
             from: "frdvp1@gmail.com",
-            template: ''
-        })
+            template: 'auth/forgot_password',
+            context: { token },
+        }, (err) => {
+            console.log(err);
+            if (err) return res.status(400).send({ error: 'Não é possível enviar token para recuperação de email agora.' });
+            return res.send();
+        });
 
         console.log(token, expires);
 
