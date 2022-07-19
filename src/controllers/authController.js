@@ -18,16 +18,19 @@ function generateToken(params = {}) {
 //rota para criação de usuário
 router.post('/register', async(req, res) => {
     const { email } = req.body;
-    
+    console.log("REQ.BODY:")
+    console.log(req.body)
     //checando se ja existe mesmo email cadastrado no sistema
     try {
+
         if(await User.findOne({ email } )) {
             return res.status(400).send({error: 'Ja existe um usuário cadastrado com este e-mail.'})
         }
         //pegando o req.body da solicitação POST em /register e criando um novo usuario  
         const result = await User.create(req.body);
+   
 
-        //retirando a senha antes de enviar os dados de volta ao client apos acriar novo usuario
+        //retirando a senha antes de enviar os dados de volta ao client apos criar novo usuario
         const {password, ...user} = result.toObject(); //do not pass the password in the response, it`s already saved.
         return res.send({ user, token: generateToken({ id: user.id }) })
     
