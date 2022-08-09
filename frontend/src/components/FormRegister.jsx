@@ -1,10 +1,25 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import bgTransaction from '../assets/undraw_investment_data_re_sh9x.svg'
 import { FaGoogle } from 'react-icons/fa'
 import { ChartBarIcon } from '@heroicons/react/outline'
 
+
+
 const FormRegister = () => {
+
+  const navigate = useNavigate();
+  const handleSubmit = event => {
+    event.preventDefault();
+
+    navigate('/');
+  }
+
+
   return (
+
+
+
     <div
       name='home'
       className='w-full md:h-screen bg-zinc-200 flex flex-col justify-between'
@@ -32,7 +47,7 @@ const FormRegister = () => {
             </div>
 
             {/* FORM */}
-            <form class='mt-8 space-y-6' action='http://localhost:3000/auth/register' method='POST'>
+            <form class='mt-8 space-y-6' action='http://localhost:3000/auth/register' method='POST' onsubmit={handleSubmit}>
               <input type='hidden' name='remember' value='true' />{' '}
               {/* VERIFICAR */}
               <div class='grid grid-cols-2 -space-y-px'>
@@ -117,6 +132,7 @@ const FormRegister = () => {
               <div>
                 <button
                   type='submit'
+                  
                   class='group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
                 >
                   <span class='absolute left-0 inset-y-0 flex items-center pl-3'>

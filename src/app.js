@@ -19,7 +19,7 @@ const app = express();
 //Initializing Middlewares
 app.use(cors());
 app.use(bodyParser.urlencoded({extended : false}));
-//app.use(bodyParser.json());
+app.use(bodyParser.json());
 //app.use(express.urlencoded())
 
 //Start listening to the server
