@@ -44,13 +44,7 @@ router.post('/register', async(req, res) => {
 //rota para autenticação de usuário
 router.post('/authenticate', async (req, res) => {
     //pegando os dados inseridos pelo usúario no req.body
-    const { email, password } = req.body;
-
-    console.log(req.body)
-
-    console.log("the entered email is: " + email)
-
-    
+    const { email, password } = req.body; 
 
     //buscando no banco de dados um usúario que tenha o mesmo email informado e salvando em uma constante
     const user = await User.findOne({ email }).select('+password');
