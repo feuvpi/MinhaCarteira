@@ -6,7 +6,7 @@ const OperationSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  unityCost: {
+  cost: {
     type: Number,
     required: true,
   },
@@ -14,12 +14,18 @@ const OperationSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
-  totalCost: {
-    type: Number,
+  type: {
+    type: String,
+    required: true,
+  },
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
     required: true,
   },
   operationDate: {
-    type: String,
+    type: Date,
+    default: Date.now,
   },
 });
 
