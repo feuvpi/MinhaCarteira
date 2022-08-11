@@ -60,10 +60,10 @@ router.put('/operationId', async (req, res) => {
 // -- delete operation
 router.delete('/:operationId', async (req, res) => {
     try {
-        const operation = await Operation.findByIdAndRemove(req.params.operationId).populate('user');
-        return res.send({ operation })
+        const operation = await Operation.findByIdAndRemove(req.params.operationId)
+        return res.send({ message: 'operation deleted.' })
     } catch (error) {
-        return res.status(400).send({ error: 'Error while deleting operation.' })
+        return res.status(400).send({ error: 'Error deleting operation.' })
     }
 });
 

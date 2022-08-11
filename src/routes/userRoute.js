@@ -7,4 +7,3 @@ const auth = require('../controllers/authController')
 router.post('/authtenticate', async(req, res) => await auth.authtenticate())
 
 
-module.exports = app => app.use('/auth', router);

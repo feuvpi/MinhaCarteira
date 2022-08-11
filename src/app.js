@@ -17,10 +17,20 @@ const db = require('./database/index');
 const app = express();
 
 //Initializing Middlewares
-app.use(cors());
+
+//app.use(cors())
+app.use(cors({
+  'allowedHeaders': ['Content-Type'], // headers that React is sending to the API
+  'exposedHeaders': ['Content-Type'], // headers that you are sending back to React
+  'origin': '*',
+  'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  'preflightContinue': false
+}));
+
+
 app.use(bodyParser.urlencoded({extended : false}));
 app.use(bodyParser.json());
-//app.use(express.urlencoded())
+app.use(express.urlencoded())
 
 //Start listening to the server
 app.listen(PORT, () => {

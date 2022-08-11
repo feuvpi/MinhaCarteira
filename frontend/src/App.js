@@ -1,25 +1,46 @@
-import React from 'react';
-import { Route, Routes } from "react-router-dom";
+import React, { useState } from 'react';
+import { Router, Route, Routes } from "react-router-dom";
 // PAGES
-import Navbar from './components/Navbar.jsx'
 import FormAuth from './components/FormAuth'
-import Footer from './components/Footer'
-import Home from './pages/Home.jsx';
-import Register from './pages/Register.jsx';
+import User from './pages/User.jsx';
 import FormRegister from './components/FormRegister.jsx';
+import { AuthContext } from "./contexts/auth";
+import Axios from "axios"
 
 
 function App() {
+
+  const login = (email, password) => {
+    Axios.post("http://localhost:3000/auth/authenticate", {
+    email: email,
+    password: password,
+  }).then((response) => {
+    if(!response.data.message){
+    } else {
+      console.log("this " + response.data.message);
+    }
+  });
+  }
+
+  const [user, setUser] = useState(null);
+
+
+  const logout = () => {};
+
   return (
 
     <>
-    <Navbar />
+    <Router>
+    <AuthContext.Provider value={{authenticated: !!user, user, login}}>
     <Routes>
-      <Route path="/login" element={<FormAuth/>}/>
+      <Route path="/" element={<FormAuth/>}/>
       <Route path="/register" element={<FormRegister/>}/>
-      <Route path="/" element={<Home/>}/>
+      <Route path="/home" element={<User/>}/>
     </Routes>
-    <Footer/>
+    </AuthContext.Provider>
+    </Router>
+   
+    
   
     </>
     
