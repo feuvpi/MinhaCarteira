@@ -39,7 +39,7 @@ const handleSubmit = (e) => {
                 alt="Workflow"
               />
               {/* --- heading --- */} 
-              <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+              <h2 className="mt-6 text-center text-3xl font-extrabold text-black-900">
                 Gerenciador de operações financeiras. Entre na sua conta
               </h2>
               {/* --- link para criar novo cadastro --- */} 
@@ -121,7 +121,7 @@ const handleSubmit = (e) => {
                   />
                   <label
                     for="remember-me"
-                    className="ml-2 block text-sm text-gray-900"
+                    className="ml-2 block text-sm text-white"
                   >
                     Lembrar
                   </label>

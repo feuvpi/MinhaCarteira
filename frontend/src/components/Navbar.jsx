@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { MenuIcon, XIcon, ChartBarIcon } from '@heroicons/react/outline'
 import {
   Link as LinkScroll,
@@ -10,8 +10,12 @@ import {
   scroller
 } from 'react-scroll'
 import { Link } from 'react-router-dom'
+import { AuthContext } from "../contexts/auth";
+
+
 
 const Navbar = () => {
+  const { logout } = useContext(AuthContext)
   const [nav, setNav] = useState(false) //AppBar state
   const handleClick = () => setNav(!nav)
 
@@ -31,9 +35,7 @@ const Navbar = () => {
           <Link to='/login'>
             <button className='bg-zinc-100 text-indigo-700 hover:bg-zinc-300 w-18'>PERFIL</button>
           </Link>
-          <Link to='/register'>
-            <button className="bg-zinc-100 text-indigo-700 hover:bg-zinc-300 w-18">SAIR</button>
-          </Link>
+            <button onClick={logout} className="bg-zinc-100 text-indigo-700 hover:bg-zinc-300 w-18">SAIR</button>
         </div>
         {/* Collapsable Menu */}
         <div className='md:hidden mr-4' onClick={handleClick}>
@@ -49,8 +51,8 @@ const Navbar = () => {
         }
       >
         <div className='flex flex-col'>
-          <button>Entrar</button>
-          <button>Cadastrar</button>
+          <button>PERFIL</button>
+          <button onClick={logout}>SAIR</button>
         </div>
       </ul>
     </div>

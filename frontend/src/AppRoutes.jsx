@@ -6,6 +6,7 @@ import {
     Navigate,
 } from "react-router-dom";
 import Operations from './pages/Operations.jsx';
+import Home from './pages/Home.jsx';
 import Assets from './pages/Assets.jsx';
 import FormAuth from './components/FormAuth'
 import FormRegister from './components/FormRegister.jsx';
@@ -29,6 +30,7 @@ const AppRoutes = () => {
     <AuthProvider>
             <Routes>
                 <Route path="/" element={<FormAuth/>}/>
+                <Route path="/home" element={<Home/>}/>
                 <Route path="/register" element={<FormRegister/>}/>
                 <Route path="/operations" element={<Private><Operations/></Private>}/>
                 <Route path="/assets" element={<Private><Assets/></Private>}/>

@@ -1,5 +1,6 @@
 import Hero from '../components/Hero.jsx'
 import Navbar from '../components/Navbar'
+import Modal from '../components/Modal'
 
 
 function Home() {
@@ -8,6 +9,7 @@ function Home() {
     <>
     <Navbar/>
     <Hero />
+    <Modal/>
     </>
 
   );

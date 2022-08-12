@@ -4,12 +4,19 @@ import About from '../components/About'
 import Support from '../components/Support'
 import AllInOne from '../components/AllInOne'
 import Pricing from '../components/Pricing'
+import { useNavigate } from 'react-router-dom';
 
 
 
 import React from 'react'
 
 export const Assets = () => {
+
+    const navigate = useNavigate();
+    const handleClick = () => {
+        navigate('/operations')
+    }
+
   return (
     <>
     
@@ -17,10 +24,10 @@ export const Assets = () => {
     <div className="flex flex-col pt-28 px-8 bg-gray-700">
     
         <div className="flex justify-center"><div class="inline-flex">
-  <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l">
+  <button class="bg-slate-500 hover:bg-slate-500 hover:text-gray-800 text-gray-800 font-bold py-2 px-4 rounded-r focus:outline-none disabled:opacity-75" disabled>
     CARTEIRA
   </button>
-  <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r">
+  <button onClick={handleClick} class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r">
     OPERAÇÕES
             </button>
         </div>
