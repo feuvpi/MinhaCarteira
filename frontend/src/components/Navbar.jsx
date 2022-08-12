@@ -24,41 +24,15 @@ const Navbar = () => {
           <Link to='/'>
             <div className='flex self-end'>
               <ChartBarIcon className='w-14 mr-2 text-zinc-200' />
-              <h1 className='text-3xl font-bold text-zinc-200 mr-4 sm:text-4xl self-end'>
-                MinhaCarteira
-              </h1>
             </div>
           </Link>
-
-          <ul className='hidden md:flex ml-6 font-medium'>
-            <li className='ml-4 text-zinc-100 hover:text-zinc-300'>
-              <LinkScroll to='home' smooth={true} duration={500}>
-                HOME
-              </LinkScroll>
-            </li>
-            <li className='ml-4 text-zinc-100 hover:text-zinc-300'>
-              <LinkScroll to='about' smooth={true} offset={-100} duration={500}>
-                SOBRE
-              </LinkScroll>
-            </li>
-            <li className='ml-4 text-zinc-100 hover:text-zinc-300'>
-              <LinkScroll
-                to='support'
-                smooth={true}
-                offset={-50}
-                duration={500}
-              >
-                SUPORTE
-              </LinkScroll>
-            </li>
-          </ul>
         </div>
         <div className='hidden md:flex pr-4 self-end'>
           <Link to='/login'>
-            <button className='bg-zinc-100 text-indigo-700 hover:bg-zinc-300'>ENTRAR</button>
+            <button className='bg-zinc-100 text-indigo-700 hover:bg-zinc-300 w-18'>PERFIL</button>
           </Link>
           <Link to='/register'>
-            <button className="bg-zinc-100 text-indigo-700 hover:bg-zinc-300">CADASTRAR</button>
+            <button className="bg-zinc-100 text-indigo-700 hover:bg-zinc-300 w-18">SAIR</button>
           </Link>
         </div>
         {/* Collapsable Menu */}
@@ -74,60 +48,6 @@ const Navbar = () => {
             : 'md:hidden flex flex-col absolute bg-zinc-200 w-full px-8 justify-items-end'
         }
       >
-        <li className='border-b-2 border-zinc-300 w-full'>
-          <LinkScroll
-            onClick={handleClose}
-            to='home'
-            smooth={true}
-            duration={500}
-          >
-            HOME
-          </LinkScroll>
-        </li>
-        <li className='border-b-2 border-zinc-300 w-full'>
-          <LinkScroll
-            onClick={handleClose}
-            to='about'
-            smooth={true}
-            offset={-100}
-            duration={500}
-          >
-            SOBRE
-          </LinkScroll>
-        </li>
-        <li className='border-b-2 border-zinc-300 w-full'>
-          <LinkScroll
-            onClick={handleClose}
-            to='support'
-            smooth={true}
-            offset={-50}
-            duration={500}
-          >
-            SUPORTE
-          </LinkScroll>
-        </li>
-        <li className='border-b-2 border-zinc-300 w-full'>
-          <LinkScroll
-            onClick={handleClose}
-            to='solutions'
-            smooth={true}
-            offset={-100}
-            duration={500}
-          >
-            SOLUTIONS
-          </LinkScroll>
-        </li>
-        <li className='border-b-2 border-zinc-300 w-full'>
-          <LinkScroll
-            onClick={handleClose}
-            to='pricing'
-            smooth={true}
-            offset={-50}
-            duration={500}
-          >
-            PRICING
-          </LinkScroll>
-        </li>
         <div className='flex flex-col'>
           <button>Entrar</button>
           <button>Cadastrar</button>

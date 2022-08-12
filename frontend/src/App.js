@@ -2,14 +2,16 @@ import React, { useState } from 'react';
 import { Router, Route, Routes } from "react-router-dom";
 // PAGES
 import FormAuth from './components/FormAuth'
-import User from './pages/User.jsx';
 import FormRegister from './components/FormRegister.jsx';
 import { AuthContext } from "./contexts/auth";
 import Axios from "axios"
+import AppRpoutes from "./AppRoutes"
+import AppRoutes from './AppRoutes';
 
 
 function App() {
 
+  /*
   const login = (email, password) => {
     Axios.post("http://localhost:3000/auth/authenticate", {
     email: email,
@@ -26,22 +28,12 @@ function App() {
 
 
   const logout = () => {};
+  */
 
   return (
 
     <>
-    <Router>
-    <AuthContext.Provider value={{authenticated: !!user, user, login}}>
-    <Routes>
-      <Route path="/" element={<FormAuth/>}/>
-      <Route path="/register" element={<FormRegister/>}/>
-      <Route path="/home" element={<User/>}/>
-    </Routes>
-    </AuthContext.Provider>
-    </Router>
-   
-    
-  
+      <AppRoutes/>
     </>
     
 

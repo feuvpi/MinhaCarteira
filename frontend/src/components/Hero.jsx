@@ -11,7 +11,7 @@ import bgTransaction from "../assets/undraw_investment_data_re_sh9x.svg";
 
 export const Hero = () => {
   return (
-    <div name="home" className="w-full md:h-screen bg-zinc-200 flex flex-col justify-between">
+    <div name="home" className="w-full md:h-screen bg-slate-700 flex flex-col justify-between">
       <div className="grid md:grid-cols-2 max-w-screen-2xl m-auto items-center">
         <div className="flex flex-col justify-center md:items-start w-full px-2 py-8">
           {" "}
