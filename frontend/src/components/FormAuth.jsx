@@ -39,11 +39,11 @@ const handleSubmit = (e) => {
                 alt="Workflow"
               />
               {/* --- heading --- */} 
-              <h2 className="mt-6 text-center text-3xl font-extrabold text-black-900">
+              <h2 className="mt-6 text-slate-200 text-center text-3xl font-extrabold text-black-900">
                 Gerenciador de operações financeiras. Entre na sua conta
               </h2>
               {/* --- link para criar novo cadastro --- */} 
-              <p className="mt-2 text-center text-sm text-gray-600">
+              <p className="mt-2 text-center text-sm">
                 <a
                   href="/register"
                   className="font-medium text-indigo-600 hover:text-indigo-500"
