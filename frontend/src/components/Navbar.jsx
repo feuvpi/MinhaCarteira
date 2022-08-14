@@ -22,20 +22,20 @@ const Navbar = () => {
   const handleClose = () => setNav(!nav)
 
   return (
-    <div className='w-screen h-16 z-100 bg-indigo-600 border-b border-indigo-300 fixed drop-shadow-xs'>
+    <div className='w-screen h-12 z-100 bg-indigo-600 border-b border-indigo-300 fixed drop-shadow-xs flex content-center'>
       <div className='px-4 flex justify-between items-center content-end w-full h-full'>
-        <div className='flex items-center'>
+        <div className='flex'>
           <Link to='/'>
             <div className='flex self-end'>
-              <ChartBarIcon className='w-14 mr-2 text-zinc-200' />
+              <ChartBarIcon className='w-10 mr-2 text-zinc-200' />
             </div>
           </Link>
         </div>
-        <div className='hidden md:flex pr-4 self-end'>
+        <div className='flex hidden md:flex pr-4 items-center self-center'>
           <Link to='/login'>
-            <button className='bg-zinc-100 text-indigo-700 hover:bg-zinc-300 w-18'>PERFIL</button>
+            <button className='flex bg-zinc-100 text-indigo-700 hover:bg-zinc-300 w-16 h-8 text-sm inline-flex place-content-center place-items-center'>PERFIL</button>
           </Link>
-            <button onClick={logout} className="bg-zinc-100 text-indigo-700 hover:bg-zinc-300 w-18">SAIR</button>
+            <button onClick={logout} className="bg-zinc-100 text-indigo-700 hover:bg-zinc-300 inline-flex h-8 text-sm w-16 place-content-center place-items-center">SAIR</button>
         </div>
         {/* Collapsable Menu */}
         <div className='md:hidden mr-4' onClick={handleClick}>
@@ -51,7 +51,7 @@ const Navbar = () => {
         }
       >
         <div className='flex flex-col'>
-          <button>PERFIL</button>
+          <button className="w-22">PERFIL</button>
           <button onClick={logout}>SAIR</button>
         </div>
       </ul>
