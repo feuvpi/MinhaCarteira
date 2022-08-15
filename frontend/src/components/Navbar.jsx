@@ -13,15 +13,25 @@ import { Link } from 'react-router-dom'
 import { AuthContext } from "../contexts/auth";
 import ModalPerfil from '../components/ModalPerfil';
 
-
+// -- utils
+import { handleClose } from "../utils/handleClose";
 
 const Navbar = () => {
   
   const { logout } = useContext(AuthContext)
   const [nav, setNav] = useState(false) //AppBar state
+  
+  // - show state for modal opening/closing
   const [show, setShow] = useState(false);
   const handleClick = () => setNav(!nav)
-  const handleClose = () => setNav(!nav)
+
+  const [showPerfil, setShowPerfil] = useState(false);
+
+  const handleClose = (e) => {
+    if(e.target.id === "closePerfil"){
+      setShow(false);
+    }
+  }
 
   return (
     <div className='w-screen h-12 z-100 bg-indigo-600 border-b border-indigo-300 fixed drop-shadow-xs flex content-center z-50'>
@@ -53,15 +63,16 @@ const Navbar = () => {
             : 'md:hidden mt-12 flex flex-col absolute bg-zinc-200 w-full px-8 justify-items-end'
         }
       >
-        <div onfocusout={handleClick} className='flex flex-col py-2'>
+        <div id="onClose" className='flex flex-col py-2'>
           <button onClick={() => {setShow(true)}} className="w-22">PERFIL</button>
           <button onClick={logout}>SAIR</button>
           
         </div>
       </ul>
-      <ModalPerfil onblur={setShow(false)} show={show}/>
+      {show && <ModalPerfil onClick={(e) => {setShow(handleClose(e))}} id="Modal" show={show}/>}
     </div>
   )
 }
+
 
 export default Navbar
