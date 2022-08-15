@@ -7,21 +7,17 @@ import React, { useState } from "react";
     }
     if(e.target.id !== "addOperation"){
         if(!show){
-            console.log("aqui")
-            console.log(e.target.id)
             return false
         } else{
             return null
         }
     }
     if(!show){
-        console.log("aqui2")
+        //console.log("aqui2")
         return true;
         
     } else{
-        console.log("aqui3")
+        //console.log("aqui3")
         return false
-        console.log(show)
-        console.log(e.target)
     }
 }

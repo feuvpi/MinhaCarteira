@@ -1,3 +1,4 @@
+import React from 'react'
 import Navbar from "../components/Navbar.jsx";
 import Hero from "../components/Hero.jsx";
 import About from "../components/About";
@@ -6,8 +7,6 @@ import AllInOne from "../components/AllInOne";
 import Pricing from "../components/Pricing";
 import { useNavigate } from "react-router-dom";
 
-import React from "react";
-
 export const Assets = () => {
   const navigate = useNavigate();
   const handleClick = () => {
@@ -15,9 +14,11 @@ export const Assets = () => {
   };
 
   return (
+
+    
     <>
       <Navbar />
-      <div className="flex flex-col pt-28 px-8 bg-gray-700">
+      <div className="h-screen flex flex-col pt-28 px-.5 bg-gray-700">
         <div className="flex justify-center">
           <div class="inline-flex">
             <button

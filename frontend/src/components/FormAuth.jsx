@@ -10,14 +10,13 @@ const FormAuth = () => {
 // - constantes de estado
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
-const { authenticated, login } = useContext(AuthContext);
+const { authenticated, login, user } = useContext(AuthContext);
 
 Axios.defaults.withCredentials = false;
 
 // - função para processar o login
 const handleSubmit = (e) => {
   e.preventDefault();
-  console.log("submit", { email, password })
   login(email, password);
 };
 

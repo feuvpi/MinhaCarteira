@@ -4,6 +4,12 @@ import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import axios from 'axios';
+import { api } from './services/api'
+
+axios.defaults.headers.common["Authorization"] = JSON.parse(localStorage.getItem("user")).token
+
+api.defaults.headers.Authorization = JSON.parse(localStorage.getItem("user")).token
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -8,8 +8,11 @@ import Axios from "axios";
 
 const FormRegister = () => {
 
+  // -- states
   const [emailReg, setEmailReg] = useState("");
   const [passwordReg, setPasswordReg] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("")
 
   const navigate = useNavigate();
   const handleSubmit = (event) => {
@@ -18,12 +21,18 @@ const FormRegister = () => {
   };
 
   const register = () => {
-    Axios.post("http://localhost:3000/auth/register", {
+    if(passwordReg === confirmPassword){
+      setErrorMessage("As senhas não estão iguais.");
+    } else {
+      setErrorMessage("");
+      Axios.post("http://localhost:3000/auth/register", {
       email: emailReg,
       password: passwordReg,
     }).then((response) => {
       console.log(response)
     })
+    }
+    
   }
 
   return (
@@ -87,6 +96,7 @@ const FormRegister = () => {
                       Digite seu e-mail:
                     </label>
                     <input
+                      onChange={(e) => {setEmailReg(e.target.value)}}
                       id="email-address"
                       name="email"
                       type="email"
@@ -105,6 +115,7 @@ const FormRegister = () => {
                       Digite uma senha:
                     </label>
                     <input
+                    onChange={(e) => {setPasswordReg(e.target.value)}}
                       id="password"
                       name="password"
                       type="password"
@@ -119,6 +130,7 @@ const FormRegister = () => {
                       Confirme sua senha:
                     </label>
                     <input
+                      onChange={(e) => {setConfirmPassword(e.target.value)}}
                       id="confirm-password"
                       name="confirmm-password"
                       type="password"
@@ -127,6 +139,9 @@ const FormRegister = () => {
                       placeholder="Confirme sua senha"
                     />
                   </div>
+                </div>
+                <div>
+                  <h3>{errorMessage}</h3>
                 </div>
               </div>
               <div className="flex justify-center">
