@@ -20,7 +20,7 @@ const app = express();
 
 //app.use(cors())
 app.use(cors({
-  origin: 'https://gestorportfolio-frontend.herokuapp.com/',
+  origin: '*',
   credentials: true,
   optionSuccessStatus: 200,
 }));
