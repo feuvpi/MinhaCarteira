@@ -43,7 +43,7 @@ router.post('/', async (req, res) => {
         console.log(result)
 
         //const operations = await Operations.findById(user).populate('user');
-        res.json(result)
+        return res.send(result)
         
     } catch (err) {
         res.json({ error: err.message || err.toString() });
