@@ -1,8 +1,9 @@
-const mongoose = require("mongoose");
+//solicitando a database
+const mongoose = require('../database');
 
 //Create schema
 const OperationSchema = mongoose.Schema({
-  ativo: {
+  symbol: {
     type: String,
     required: true,
   },
@@ -29,4 +30,8 @@ const OperationSchema = mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Operation", OperationSchema);
+const Operation = mongoose.model("Operation", OperationSchema);
+
+module.exports = Operation;
+
+

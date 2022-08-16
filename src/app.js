@@ -20,14 +20,22 @@ const app = express();
 
 //app.use(cors())
 app.use(cors({
+  origin: 'http://localhost:3001',
+  credentials: true,
+  optionSuccessStatus: 200,
+}));
+
+/*
+app.use(cors({
   'allowedHeaders': ['Content-Type'], // headers that React is sending to the API
   'exposedHeaders': ['Content-Type'], // headers that you are sending back to React
   'origin': '*',
   'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
   'preflightContinue': false
 }));
+*/
 
-
+app.use(express.json());
 app.use(bodyParser.urlencoded({extended : false}));
 app.use(bodyParser.json());
 app.use(express.urlencoded())

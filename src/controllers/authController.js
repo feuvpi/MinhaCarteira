@@ -27,7 +27,6 @@ router.post('/register', async(req, res) => {
         //pegando o req.body da solicitação POST em /register e criando um novo usuario  
         const result = await User.create(req.body);
    
-
         //retirando a senha antes de enviar os dados de volta ao client apos criar novo usuario
         const {password, ...user} = result.toObject(); //do not pass the password in the response, it`s already saved.
         return res.send({ user, token: generateToken({ id: user.id }) })
@@ -58,8 +57,7 @@ router.post('/authenticate', async (req, res) => {
 
     //enviando a requisição de volta com informações sobre o usuário autenticado\
     console.log(user.id)
-    res.send({ user, token: generateToken({ id: user.id }) })
-    console.log(generateToken({ id: user.id }))
+    res.send({user, token: generateToken({ id: user.id }) })
 
 });
 

@@ -27,7 +27,12 @@ module.exports = (req, res, next) => {
 
     //verificar se o token informado no req é valido
     jwt.verify(token, authConfig.secret, (err, decoded) => {
-        if(err) return res.status(401).send({ error: err })
+        if(err) {
+            console.log(authHeader)
+            console.log("o erro foi: " + err)
+            return res.status(401).send({ error: err })
+        }
+        
 
         req.userId = decoded.id;
     });

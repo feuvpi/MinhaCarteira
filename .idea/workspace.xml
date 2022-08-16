@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2ada57a5-78dd-4760-a4d2-10cb06f4d488" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/postcss.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/AppRoutes.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/6194957.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/6194958.ai" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/6194959.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/65Z_2201.w012.n001.25B.p12.25.eps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/flat-woman-paying-by-pos-terminal-refund-cashback.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/ibrahim-boran-PXnJeZxMuRY-unsplash.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/isometric-cryptocurrency-concept-with-phone.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/joshua-mayo-NfOKSTutAYk-unsplash.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/markus-spiske-Fa0pTKuoDVY-unsplash.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/scott-graham-5fNmWej4tAA-unsplash.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/transaction1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/undraw_investment_data_re_sh9x.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/undraw_performance_overview_re_mqrq.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/assets/undraw_working_late_re_0c3y.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/About.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/AllInOne.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Footer.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/FormAuth.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/FormRegister.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Hero.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ModalOperation.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ModalPerfil.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Navbar.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Pricing.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Support.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/contexts/auth.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/contexts/operation.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/deletedfiles/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/deletedfiles/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/deletedfiles/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/deletedfiles/reportWebVitals.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/deletedfiles/setupTests.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Assets.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Operations.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Register.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/services/api.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/utils/handleClose.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tailwind.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/authController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/operationController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/operationController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middlewares/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middlewares/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Operation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Operation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/operations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/operations.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2DPlAPyJQuSLizf93kNixkl7jNY" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2ada57a5-78dd-4760-a4d2-10cb06f4d488" name="Changes" comment="" />
+      <created>1660608457938</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1660608457938</updated>
+    </task>
+    <servers />
+  </component>
+</project>
