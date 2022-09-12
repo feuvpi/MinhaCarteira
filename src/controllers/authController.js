@@ -17,6 +17,7 @@ function generateToken(params = {}) {
 
 //rota para criação de usuário
 router.post('/register', async(req, res) => {
+    console.log(req.body)
     const { email } = req.body;
     //checando se ja existe mesmo email cadastrado no sistema
     try {
@@ -40,6 +41,12 @@ router.post('/register', async(req, res) => {
 
 // -- rota para autenticação de usuário
 router.post('/authenticate', async (req, res) => {
+   
+    // res.setHeader("Access-Control-Allow-Origin", "*");
+    // res.setHeader("Access-Control-Allow-Credentials", "true")
+    // res.setHeader("Access-Control-Max-Age", "1800")
+    // res.setHeader("Access-Control-Allow-Headers", "content-type")
+    // res.setHeader("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS")
     //pegando os dados inseridos pelo usúario no req.body
     const { email, password } = req.body; 
     //buscando no banco de dados um usúario que tenha o mesmo email informado e salvando em uma constante
@@ -49,8 +56,9 @@ router.post('/authenticate', async (req, res) => {
         return res.status(400).send({ error: 'Usuário não encontrado.'});
     }
     //comparando a senha informada com a senha registrada no banco de dados, utilizando bcrypt
-    if(!await bcrypt.compare(password, user.password))
-        return res.status(400).send({ error: 'Senha incorreta.'});
+    if(!await bcrypt.compare(password, user.password)){
+        console.log("Senha incorreta")
+        return res.status(400).send({ error: 'Senha incorreta.'});}
     
     //retirando a senha do user antes de enviar ao client
     user.password = undefined;

@@ -10,7 +10,6 @@ const router = express.Router();
 
 router.use(authMiddleWare);
 
-
 // -- create operation
 router.post('/operation', async (req, res) => {
     //console.log(req.body)
@@ -25,6 +24,24 @@ router.post('/operation', async (req, res) => {
         
     }
 });
+
+// -- update specific operations
+router.put('/operation', async (req, res) => {
+    console.log("tentando atualizar uma operação")
+    try {
+        const operation = await Operations.findById(req.body._id)
+        operation.cost = req.body.cost
+        operation.quantity = req.body.quantity
+        operation.type =  req.body.type
+        operation.symbol = req.body.symbol
+        console.log(operation)
+        await operation.save()
+        res.json(operation)
+    } catch (error) {
+        console.log(error)
+        res.json({ error: err.message || err.toString() });
+    }
+})
 
 // -- get all operations from specific user
 router.post('/', async (req, res) => {
@@ -66,8 +83,12 @@ router.get('/user/:operationId', async (req, res) => {
 
 
 // - update specific operations
-router.put('/user/operationId', async (req, res) => {
+router.put('/operations/operationId', async (req, res) => {
     try {
+        const object = new Operations();
+
+
+
         const operation = await Operations.create(req.body)
         //console.log(operation)
         //return res.send({ operation })
