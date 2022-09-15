@@ -17,7 +17,6 @@ function generateToken(params = {}) {
 
 //rota para criação de usuário
 router.post('/register', async(req, res) => {
-    console.log(req.body)
     const { email } = req.body;
     //checando se ja existe mesmo email cadastrado no sistema
     try {
@@ -68,6 +67,31 @@ router.post('/authenticate', async (req, res) => {
     res.send({user, token: generateToken({ id: user.id }) })
 
 });
+
+// -- rota para edição de usuario --
+router.post('/user', async (req, res) => {
+    const { oldPassword } = req.body
+    const { _id } = req.body
+    const user = await User.findOne({ _id }).select('+password')
+    if(!user){
+        return res.status(400).send({ error: 'Problema ao localizar usuário no banco de dados.'});
+    }
+
+    if(!await bcrypt.compare(oldPassword, user.password)){
+        return res.status(200).send({ message: 'Senha antiga não confere.'});}
+
+    user.password = req.body.password
+    user.name = req.body.name
+    user.email = req.body.email
+    const save = await user.save()
+    if(save){
+        res.send({ message: 'Perfil atualizado com sucesso!' })
+    } else {
+        res.send({ message: 'Problema de conexão com o banco de dados. Tente novamente mais tarde.' })
+    }
+    
+    
+})
 
 //rota para recuperação de senha
 router.post('/forgot_password', async (req, res) => {

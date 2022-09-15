@@ -46,7 +46,7 @@ router.put('/operation', async (req, res) => {
 // -- get all operations from specific user
 router.post('/', async (req, res) => {
     console.log('route acessed.')
-    console.log(req.body.user)
+    console.log(req.body)
     try {
         //console.log('route acessed.')
         const result = await Operations.aggregate([
@@ -77,24 +77,6 @@ router.get('/user/:operationId', async (req, res) => {
         return res.send({ operation })
     } catch (error) {
         return res.status(400).send({ error: 'Error loading operation. ' + err })
-    }
-});
-
-
-
-// - update specific operations
-router.put('/operations/operationId', async (req, res) => {
-    try {
-        const object = new Operations();
-
-
-
-        const operation = await Operations.create(req.body)
-        //console.log(operation)
-        //return res.send({ operation })
-    } catch (err) {
-        return res.status(400).send({ error: 'Error while creating new operation.' })
-        
     }
 });
 
