@@ -52,12 +52,12 @@ router.post('/authenticate', async (req, res) => {
     const user = await User.findOne({ email }).select('+password');
     //verificando se o usuário não existe
     if(!user){
-        return res.status(400).send({ error: 'Usuário não encontrado.'});
+        return res.status(200).send({ error: 'Usuário não encontrado.'});
     }
     //comparando a senha informada com a senha registrada no banco de dados, utilizando bcrypt
     if(!await bcrypt.compare(password, user.password)){
         console.log("Senha incorreta")
-        return res.status(400).send({ error: 'Senha incorreta.'});}
+        return res.status(200).send({ error: 'Senha incorreta.'});}
     
     //retirando a senha do user antes de enviar ao client
     user.password = undefined;

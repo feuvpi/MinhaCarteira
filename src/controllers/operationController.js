@@ -67,23 +67,13 @@ router.post('/', async (req, res) => {
     }
 })
 
-
-
-// -- get specific operation
-router.get('/user/:operationId', async (req, res) => {
-    console.log('route acessed.')
-    try {
-        const operation = await Operations.findById(req.params.operationId).populate('user');
-        return res.send({ operation })
-    } catch (error) {
-        return res.status(400).send({ error: 'Error loading operation. ' + err })
-    }
-});
-
 // -- delete operation
-router.delete('/user/:operationId', async (req, res) => {
+router.delete('/operation/:id', async (req, res) => {
     try {
-        const operation = await Operations.findByIdAndRemove(req.params.operationId)
+        console.log("ativei")
+        console.log(req.params.id)
+        const operation = await Operations.findByIdAndRemove(req.params.id)
+        console.log(operation)
         return res.send({ message: 'operation deleted.' })
     } catch (error) {
         return res.status(400).send({ error: 'Error deleting operation.' })
