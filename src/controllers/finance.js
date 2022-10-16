@@ -19,11 +19,11 @@ router.use(authMiddleWare);
 router.post('/quote', async (req, res) => {
     console.log('here')
     try {
-        const response = await finnhubClient.quote('AAPL', (error, data, response) => {
-            
+        const data = await finnhubClient.quote(req.body.symbol, (error, data, response) => {
+            res.json(response.res.text)
+            console.log(response.res.text)
         })
-        res.json(response)
-        console.log(response.res.text)
+        console.log(data.res.text)
     } catch (error) {
         
     }
