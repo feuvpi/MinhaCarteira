@@ -39,7 +39,7 @@ router.put('/operation', async (req, res) => {
         res.json(operation)
     } catch (error) {
         console.log(error)
-        res.json({ error: err.message || err.toString() });
+        res.json({ error: error.message || err.toString() });
     }
 })
 
