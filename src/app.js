@@ -18,12 +18,12 @@ const app = express();
 
 //Initializing Middlewares
 
-app.use(cors())
-app.use(cors({
-  origin: ['*', 'https://gerenciamento-portfolio.onrender.com'],
-  credentials: true,
-  optionSuccessStatus: 200,
-}));
+// app.use(cors())
+// app.use(cors({
+//   origin: ['*', 'https://gerenciamento-portfolio.onrender.com'],
+//   credentials: true,
+//   optionSuccessStatus: 200,
+// }));
 
 //app.use(cors({ origin: true })); // enable origin cors
 
@@ -35,7 +35,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use(cors({ origin: "https://gerenciamento-portfolio.onrender.com", optionsSuccessStatus: 200 }));
+app.use(cors({ origin: "*", optionsSuccessStatus: 200 }));
 
 /*
 app.use(cors({
